@@ -37,9 +37,6 @@ public class Vehiculo {
     private Prueba pruebas;
 
 
-
-
-
     /**
      * @return
      */
