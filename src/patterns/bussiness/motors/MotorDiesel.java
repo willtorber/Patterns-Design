@@ -1,7 +1,5 @@
 package patterns.bussiness.motors;
 
-import java.util.*;
-
 /**
  * 
  */
@@ -18,6 +16,7 @@ public class MotorDiesel extends Motor {
      */
     protected void abrirValvulaDeAdminision() {
         // TODO implement here
+    	System.out.println("Abriendo valvulas de Admision Motor Diesel...");
     }
 
     /**
@@ -25,6 +24,7 @@ public class MotorDiesel extends Motor {
      */
     protected void bajarPiston() {
         // TODO implement here
+    	System.out.println("Bajando pistones en Motor Diesel...");
     }
 
     /**
@@ -32,6 +32,8 @@ public class MotorDiesel extends Motor {
      */
     protected void iniciarCalentamientoDeAire() {
         // TODO implement here
+    	System.out.println("Iniciando calentamiento Motor Diesel");
+    	
     }
 
     /**
@@ -39,6 +41,7 @@ public class MotorDiesel extends Motor {
      */
     protected void subirPiston() {
         // TODO implement here
+    	System.out.println("Subiendo pistones en Motor Diesel...");
     }
 
     /**
@@ -46,6 +49,7 @@ public class MotorDiesel extends Motor {
      */
     public void inyectarCombustible() {
         // TODO implement here
+    	System.out.println("Inyectando combustible a Motor Diesel...");
     }
 
     /**
@@ -53,6 +57,7 @@ public class MotorDiesel extends Motor {
      */
     protected void abrirValculaDeEscape() {
         // TODO implement here
+    	System.out.println("Abriendo valvula de escapeen en Motor Diesel...");
     }
 
 }

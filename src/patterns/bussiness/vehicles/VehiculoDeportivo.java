@@ -1,11 +1,10 @@
 package patterns.bussiness.vehicles;
 
 import java.util.*;
-
 /**
  * 
  */
-public class VehiculoDeportivo extends Vehiculo {
+public class VehiculoDeportivo extends Vehiculo{
 
     /**
      * Default constructor
@@ -23,7 +22,7 @@ public class VehiculoDeportivo extends Vehiculo {
      */
     public boolean getSadf() {
         // TODO implement here
-        return false;
+        return this.sadf;
     }
 
     /**
@@ -31,6 +30,7 @@ public class VehiculoDeportivo extends Vehiculo {
      */
     public void setSadf(boolean value) {
         // TODO implement here
+    	this.sadf = value;
     }
 
 }

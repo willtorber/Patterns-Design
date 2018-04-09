@@ -1,7 +1,5 @@
 package patterns.bussiness.motors.interfaces;
 
-import java.util.*;
-
 /**
  * 
  */

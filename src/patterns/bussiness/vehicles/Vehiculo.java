@@ -8,7 +8,7 @@ import patterns.bussiness.tests.Prueba;
 /**
  * 
  */
-public class Vehiculo {
+public class Vehiculo{
 
     /**
      * Default constructor
@@ -30,11 +30,11 @@ public class Vehiculo {
      * 
      */
     private IMotor motor;
-
+    
     /**
      * 
      */
-    private Prueba pruebas;
+    private String color;
 
 
     /**
@@ -44,20 +44,29 @@ public class Vehiculo {
         // TODO implement here
         return null;
     }
+    
+    /**
+     * @return
+     */
+    public void setPlaca(String placa) {
+        // TODO implement here
+        this.placa = placa;
+    }
 
     /**
      * @return
      */
     public String getTipo() {
         // TODO implement here
-        return null;
+        return this.tipo;
     }
 
     /**
      * @param value
      */
-    public void setTipo(String value) {
+    public void setTipo(String tipo) {
         // TODO implement here
+    	this.tipo = tipo;
     }
 
     /**
@@ -67,38 +76,36 @@ public class Vehiculo {
         // TODO implement here
         return null;
     }
-
+    
     /**
      * @param value
      */
-    public void setMotor(IMotor value) {
+	public void setMotor(IMotor motor) {
         // TODO implement here
+    	this.motor = motor;
     }
+    
+    public String getColor() {
+		return color;
+	}
 
-    /**
-     * @return
-     */
-    public Prueba getPruebas() {
-        // TODO implement here
-        return null;
-    }
+	public void setColor(String color) {
+		this.color = color;
+	}
 
-    /**
-     * @param value
-     */
-    public void setPruebas(Prueba value) {
-        // TODO implement here
-    }
+	
 
     /**
      * @param placa 
      * @param tipo 
-     * @param motor 
-     * @return
+     * @param motor
      */
-    public Vehiculo registrarVehiculo(String placa, String tipo, IMotor motor) {
+    public void registrarVehiculo(String placa, String tipo, IMotor motor) {
         // TODO implement here
-        return null;
+    	this.placa = placa;
+    	this.tipo = tipo;
+    	this.motor = motor;
+        System.out.println("Registro del vehiculo completo");
     }
 
     /**
@@ -151,5 +158,12 @@ public class Vehiculo {
     public void apagar() {
         // TODO implement here
     }
+
+	@Override
+	public String toString() {
+		return "Vehiculo [placa=" + placa + ", tipo=" + tipo + ", motor=" + motor + ", color=" + color + "]";
+	}
+
+	
 
 }

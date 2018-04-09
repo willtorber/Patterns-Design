@@ -1,16 +1,15 @@
 package patterns.main;
 
-import java.util.*;
 
-import patterns.bussiness.iterator.Iterator;
-import patterns.bussiness.orders.InternationalOrder;
-import patterns.bussiness.orders.NationalOrder;
+import patterns.bussiness.motors.MotorAdapterDiesel;
+import patterns.bussiness.motors.MotorDiesel;
+import patterns.bussiness.pattern.factory.Factory;
 
 public class Application {
 
 	public static void main(String[] args) {
 		
-		List<String> l = new ArrayList<String>(); 
+		/*List<String> l = new ArrayList<String>(); 
 		l.add("1");
 		l.add("2");
 		l.add("3");
@@ -26,6 +25,12 @@ public class Application {
 		while(i.hasNext()) {
 			System.out.println(i.next());
 		}
+		*/
+		MotorDiesel motorD = new MotorDiesel();
+		MotorAdapterDiesel motorAD =  new MotorAdapterDiesel(motorD);
+		Factory factor = new Factory();
+		System.out.println(factor.crearVehiculo("Urbano", "Rojo", "1234", motorAD).toString());
+		System.out.println(factor.crearVehiculo("Urbano", "Rojo", "4321", motorAD).toString());
 		
 	}
 

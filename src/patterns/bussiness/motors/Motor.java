@@ -1,7 +1,5 @@
 package patterns.bussiness.motors;
 
-import java.util.*;
-
 import patterns.bussiness.motors.interfaces.IMotor;
 
 /**

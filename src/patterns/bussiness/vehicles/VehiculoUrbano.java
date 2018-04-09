@@ -31,6 +31,7 @@ public class VehiculoUrbano extends Vehiculo {
      */
     public void setCapacidad_maletero(float value) {
         // TODO implement here
+    	this.capacidad_maletero = value;
     }
 
 }
