@@ -25,5 +25,23 @@ public interface IMotor {
      * 
      */
     public void iniciarEscape();
+    
+    
+    public String getReferencia();
+
+	
+    public String getTipo();
+
+	
+    public float getCapacidad_combustible();
+
+	
+    public int getNumeros_pistones();
+
+	
+    public float getPeso();
+
+	
+    public int getNumero_cambios();
 
 }

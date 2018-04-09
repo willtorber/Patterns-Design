@@ -4,14 +4,14 @@ package patterns.bussiness.motors;
  * 
  */
 public class MotorDiesel extends Motor {
+	
+    public MotorDiesel(String referencia, String tipo, float capacidad_combustible, int numeros_pistones, float peso,
+			int numero_cambios) {
+		super(referencia, tipo, capacidad_combustible, numeros_pistones, peso, numero_cambios);
+		// TODO Auto-generated constructor stub
+	}
 
-    /**
-     * Default constructor
-     */
-    public MotorDiesel() {
-    }
-
-    /**
+	/**
      * 
      */
     protected void abrirValvulaDeAdminision() {

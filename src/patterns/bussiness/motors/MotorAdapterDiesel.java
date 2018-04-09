@@ -6,14 +6,11 @@ package patterns.bussiness.motors;
 public class MotorAdapterDiesel extends Motor {
 	
 	private MotorDiesel motorDiesel;
-
-    /**
-     * Default constructor
-     */
-    public MotorAdapterDiesel(MotorDiesel motorDiesel) {
-    	this.motorDiesel = motorDiesel;
-    }
-
+	
+	public MotorAdapterDiesel(MotorDiesel motorDiesel) {				
+		this.motorDiesel = motorDiesel;
+	}
+    
     /**
      * @return
      */

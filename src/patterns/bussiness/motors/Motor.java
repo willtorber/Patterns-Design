@@ -8,12 +8,6 @@ import patterns.bussiness.motors.interfaces.IMotor;
 public class Motor implements IMotor {
 
     /**
-     * Default constructor
-     */
-    public Motor() {
-    }
-
-    /**
      * 
      */
     private String referencia;
@@ -43,91 +37,47 @@ public class Motor implements IMotor {
      */
     private int numero_cambios;
 
+                
+    public Motor(String referencia, String tipo, float capacidad_combustible, int numeros_pistones, float peso,
+			int numero_cambios) {
+		super();
+		this.referencia = referencia;
+		this.tipo = tipo;
+		this.capacidad_combustible = capacidad_combustible;
+		this.numeros_pistones = numeros_pistones;
+		this.peso = peso;
+		this.numero_cambios = numero_cambios;
+	}
+    
+    public Motor() {
 
-    /**
-     * @return
-     */
-    public String getReferencia() {
-        // TODO implement here
-        return null;
-    }
+	}       
 
-    /**
-     * @return
-     */
-    public String getTipo() {
-        // TODO implement here
-        return null;
-    }
+	public String getReferencia() {
+		return referencia;
+	}
 
-    /**
-     * @param value
-     */
-    public void setTipo(String value) {
-        // TODO implement here
-    }
+	public String getTipo() {
+		return tipo;
+	}
 
-    /**
-     * @return
-     */
-    public float getCapacidad_combustible() {
-        // TODO implement here
-        return 0.0f;
-    }
+	public float getCapacidad_combustible() {
+		return capacidad_combustible;
+	}
 
-    /**
-     * @param value
-     */
-    public void setCapacidad_combustible(float value) {
-        // TODO implement here
-    }
+	public int getNumeros_pistones() {
+		return numeros_pistones;
+	}
 
-    /**
-     * @return
-     */
-    public int getNumeros_pistones() {
-        // TODO implement here
-        return 0;
-    }
+	public float getPeso() {
+		return peso;
+	}
 
-    /**
-     * @param value
-     */
-    public void setNumeros_pistones(int value) {
-        // TODO implement here
-    }
+	public int getNumero_cambios() {
+		return numero_cambios;
+	}
 
-    /**
-     * @return
-     */
-    public float getPeso() {
-        // TODO implement here
-        return 0.0f;
-    }
-
-    /**
-     * @param value
-     */
-    public void setPeso(float value) {
-        // TODO implement here
-    }
-
-    /**
-     * @return
-     */
-    public int getNumero_cambios() {
-        // TODO implement here
-        return 0;
-    }
-
-    /**
-     * @param value
-     */
-    public void setNumero_cambios(int value) {
-        // TODO implement here
-    }
-
-    /**
+	/**
      * 
      */
     public void inyectarCombustible() {
