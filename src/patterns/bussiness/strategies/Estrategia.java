@@ -1,22 +1,16 @@
 package patterns.bussiness.strategies;
 
-import java.util.*;
-
 /**
  * 
  */
 public abstract class Estrategia {
 
-    /**
-     * Default constructor
-     */
     public Estrategia() {
+    
     }
 
-
-    /**
-     * 
-     */
-    public abstract void aplicarEstrategia();
+    public abstract float getAnalisisDeSeguridad(float inidiceVisibilidad , float rozamiento);
+	
+	public abstract float getAnalisisDeCalidad(float consumoCombustible , float resistencia , float suspension);	
 
 }

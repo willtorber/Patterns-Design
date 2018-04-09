@@ -1,7 +1,5 @@
 package patterns.bussiness.tests;
 
-import java.util.*;
-
 import patterns.bussiness.scenarios.Escenario;
 import patterns.bussiness.strategies.Estrategia;
 import patterns.bussiness.vehicles.Vehiculo;
@@ -11,201 +9,120 @@ import patterns.bussiness.vehicles.Vehiculo;
  */
 public class Prueba {
 
-    /**
-     * Default constructor
-     */
-    public Prueba() {
-    }
-
-    /**
-     * 
-     */
-    private int codigo;
-
-    /**
-     * 
-     */
     private Vehiculo vehiculo;
 
-    /**
-     * 
-     */
     private Escenario escenario;
 
-    /**
-     * 
-     */
     private float resistencia;
 
-    /**
-     * 
-     */
-    public String consumo_combustible;
+    public float consumo_combustible;
 
-    /**
-     * 
-     */
     private float suspension;
 
-    /**
-     * 
-     */
     private Estrategia estrategia;
 
 
-
-
-    /**
-     * @return
-     */
-    public int getCodigo() {
-        // TODO implement here
-        return 0;
+    public Prueba(Vehiculo vehiculo , Escenario escenario ,Estrategia estrategia) {
+    	this.vehiculo = vehiculo;
+    	this.escenario = escenario;
+    	this.estrategia = estrategia;
+    	this.consumo_combustible = 0;
+    	this.resistencia = 0;
+    	this.suspension = 0;
+    }
+    
+    public Prueba() {
+    	
+    }
+    
+    public void realizarPrueba() {
+    	System.out.println("*** Inicio de la Prueba ***");
+    	this.vehiculo.encender();
+    	this.vehiculo.acelerar();
+    	for (int i = 0; i < this.vehiculo.getMotor().getNumero_cambios(); i++) {
+    		this.vehiculo.cambiarVelocidad();
+    		this.calcularConsumoCombustile(i);
+    		this.calcularSuspencion(i);
+    		this.calcularResistencia(i);
+		}
+    	System.out.println(this.estrategia.getAnalisisDeSeguridad(escenario.getVisibilidad(), this.escenario.getRozamiento()));
+    	System.out.println(this.estrategia.getAnalisisDeCalidad(this.consumo_combustible, this.resistencia, this.suspension));    	
+    	this.vehiculo.apagar();
+    	System.out.println("*** Fin de la Prueba ***");
     }
 
-    /**
-     * @param value
-     */
-    public void setCodigo(int value) {
-        // TODO implement here
+    public void registrarPruebas() {
+        System.out.println("Pruebas registradas con exito");
     }
 
-    /**
-     * @return
-     */
-    public Vehiculo getVehiculo() {
-        // TODO implement here
-        return null;
+    private float calcularConsumoCombustile(int base) {
+    	this.consumo_combustible = (this.consumo_combustible*base) + (this.vehiculo.getMotor().getCapacidad_combustible()* (float)0.02)
+    								/this.escenario.getRozamiento()/(base+1);
+    	System.out.println("Consumo combustible estado "+(base+1)+": "+this.consumo_combustible);
+        return this.consumo_combustible;
+    }
+    
+    private float calcularResistencia(int base) {
+        this.resistencia = (this.resistencia*base) + (this.vehiculo.getMotor().getPeso() * (1/this.escenario.getRozamiento()))
+        					/(base+1);
+        System.out.println("Resistencia estado "+(base+1)+": "+this.resistencia);
+        return this.resistencia;
+    }
+    
+    public float calcularSuspencion(int base) {
+    	this.suspension = (this.suspension*base) + (1/this.escenario.getRozamiento()) + this.vehiculo.getMotor().getPeso()
+    						/(base+1); 
+    	System.out.println("Suspension estado "+(base+1)+": "+this.suspension);
+        return this.suspension;
     }
 
-    /**
-     * @param value
-     */
-    public void setVehiculo(Vehiculo value) {
-        // TODO implement here
-    }
+	public Vehiculo getVehiculo() {
+		return vehiculo;
+	}
 
-    /**
-     * @return
-     */
-    public Escenario getEscenario() {
-        // TODO implement here
-        return null;
-    }
+	public void setVehiculo(Vehiculo vehiculo) {
+		this.vehiculo = vehiculo;
+	}
 
-    /**
-     * @param value
-     */
-    public void setEscenario(Escenario value) {
-        // TODO implement here
-    }
+	public Escenario getEscenario() {
+		return escenario;
+	}
 
-    /**
-     * @return
-     */
-    public float getResistencia() {
-        // TODO implement here
-        return 0.0f;
-    }
+	public void setEscenario(Escenario escenario) {
+		this.escenario = escenario;
+	}
 
-    /**
-     * @param value
-     */
-    public void setResistencia(float value) {
-        // TODO implement here
-    }
+	public float getResistencia() {
+		return resistencia;
+	}
 
-    /**
-     * @return
-     */
-    public float getConsumo_combustible() {
-        // TODO implement here
-        return 0.0f;
-    }
+	public void setResistencia(float resistencia) {
+		this.resistencia = resistencia;
+	}
 
-    /**
-     * @param value
-     */
-    public void setConsumo_combustible(float value) {
-        // TODO implement here
-    }
+	public float getConsumo_combustible() {
+		return consumo_combustible;
+	}
 
-    /**
-     * @return
-     */
-    public float getSuspension() {
-        // TODO implement here
-        return 0.0f;
-    }
+	public void setConsumo_combustible(float consumo_combustible) {
+		this.consumo_combustible = consumo_combustible;
+	}
 
-    /**
-     * @param value
-     */
-    public void setSuspension(float value) {
-        // TODO implement here
-    }
+	public float getSuspension() {
+		return suspension;
+	}
 
-    /**
-     * @return
-     */
-    public Estrategia getEstrategia() {
-        // TODO implement here
-        return null;
-    }
+	public void setSuspension(float suspension) {
+		this.suspension = suspension;
+	}
 
-    /**
-     * @param value
-     */
-    public void setEstrategia(Estrategia value) {
-        // TODO implement here
-    }
+	public Estrategia getEstrategia() {
+		return estrategia;
+	}
 
-    /**
-     * @return
-     */
-    public boolean registrarPruebas() {
-        // TODO implement here
-        return false;
-    }
-
-    /**
-     * @return
-     */
-    public ArrayList<Prueba> listarPruebas() {
-        // TODO implement here
-        return null;
-    }
-
-    /**
-     * @return
-     */
-    private float calcularConsumoCombustile() {
-        // TODO implement here
-        return 0.0f;
-    }
-
-    /**
-     * @return
-     */
-    private float calcularResistencia() {
-        // TODO implement here
-        return 0.0f;
-    }
-
-    /**
-     * @return
-     */
-    public float calcularSuspencion() {
-        // TODO implement here
-        return 0.0f;
-    }
-
-    /**
-     * @return
-     */
-    public boolean exportarPruebas() {
-        // TODO implement here
-        return false;
-    }
+	public void setEstrategia(Estrategia estrategia) {
+		this.estrategia = estrategia;
+	}        
 
 }
+

@@ -1,6 +1,5 @@
-package patterns.bussiness.scenarios
-;
-import java.util.*;
+package patterns.bussiness.scenarios;
+
 
 /**
  * 
@@ -8,12 +7,17 @@ import java.util.*;
 public class Escenario {
 
     /**
-     * Default constructor
+     * 
      */
-    public Escenario() {
-    }
+    private float visibilidad;
+    
 
     /**
+     * 
+     */
+    private float rozamiento;
+   
+	/**
      * 
      */
     private String terreno;
@@ -27,50 +31,62 @@ public class Escenario {
      * 
      */
     private int codigo;
-
+    
     /**
-     * 
+     * Default constructor
      */
-    public void listarEscenarios() {
-        // TODO implement here
+    public Escenario() {
+    
     }
+            
+	public Escenario(float visibilidad, float rozamiento, String terreno, String clima, int codigo) {
+		super();
+		this.visibilidad = visibilidad;
+		this.rozamiento = rozamiento;
+		this.terreno = terreno;
+		this.clima = clima;
+		this.codigo = codigo;
+	}
 
-    /**
-     * @return
-     */
-    public String getTerreno() {
-        // TODO implement here
-        return null;
-    }
 
-    /**
-     * @param value
-     */
-    public void setTerreno(String value) {
-        // TODO implement here
-    }
+	public float getVisibilidad() {
+		return visibilidad;
+	}
 
-    /**
-     * @return
-     */
-    public String getClima() {
-        // TODO implement here
-        return null;
-    }
+	public void setVisibilidad(float visibilidad) {
+		this.visibilidad = visibilidad;
+	}
 
-    /**
-     * @param value
-     */
-    public void setClima(String value) {
-        // TODO implement here
-    }
+	public float getRozamiento() {
+		return rozamiento;
+	}
 
-    /**
-     * @return
-     */
-    public int getCodigo() {
-        // TODO implement here
-        return 0;
-    }
+	public void setRozamiento(float rozamiento) {
+		this.rozamiento = rozamiento;
+	}
 
+	public String getTerreno() {
+		return terreno;
+	}
+
+	public void setTerreno(String terreno) {
+		this.terreno = terreno;
+	}
+
+	public String getClima() {
+		return clima;
+	}
+
+	public void setClima(String clima) {
+		this.clima = clima;
+	}
+
+	public int getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(int codigo) {
+		this.codigo = codigo;
+	}
+    
 }

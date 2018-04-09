@@ -1,22 +1,22 @@
 package patterns.bussiness.strategies;
 
-import java.util.*;
-
 /**
  * 
  */
 public class EstrategiaA extends Estrategia {
-
-    /**
-     * Default constructor
-     */
+    
     public EstrategiaA() {
+    	
     }
 
 	@Override
-	public void aplicarEstrategia() {
-		// TODO Auto-generated method stub
-		
+	public float getAnalisisDeSeguridad(float inidiceVisibilidad, float rozamiento) {
+		return (( inidiceVisibilidad * ((float)0.23) + 0.5f)/rozamiento);
 	}
 
+	@Override
+	public float getAnalisisDeCalidad(float consumoCombustible, float resistencia, float suspension) {
+		return (resistencia * consumoCombustible)/(suspension + 1/2);
+	}
+       
 }
