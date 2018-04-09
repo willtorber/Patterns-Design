@@ -11,7 +11,6 @@ public class Escenario {
      */
     private float visibilidad;
     
-
     /**
      * 
      */

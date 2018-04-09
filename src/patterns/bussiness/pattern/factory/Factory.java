@@ -7,25 +7,21 @@ import patterns.bussiness.vehicles.VehiculoDeportivo;
 import patterns.bussiness.vehicles.VehiculoUrbano;
 
 public class Factory implements IFactory {
-			
-	
+				
 	@Override
-	public Vehiculo crearVehiculo(String tipo, String color, String placa, IMotor motor) {
-		// TODO Auto-generated method stub
+	public Vehiculo crearVehiculo(String tipo, String name_color, String placa, IMotor motor) {		
 		ColorFlyWeight colorF =  new ColorFlyWeight();
-		Vehiculo v = null;
+		Vehiculo vehiculo = null;
 		switch (tipo) {
 		case "Deportivo":				
-			v = new VehiculoDeportivo();
-			v.setColor(colorF.getColor(color).getColor());
+			vehiculo = new VehiculoDeportivo(placa, tipo, motor, colorF.getColor(name_color).getColor(), true);			
 		case "Urbano":
-			v = new VehiculoUrbano();
-			v.setColor(colorF.getColor(color).getColor());
+			vehiculo = new VehiculoUrbano(placa, tipo, motor, colorF.getColor(name_color).getColor(), 4.0f);			
 		default:
 			break;
 		}		
-		v.registrarVehiculo(placa, tipo, motor);		
-		return v;
+		vehiculo.registrarVehiculo();				
+		return vehiculo;
 	}
 
 }

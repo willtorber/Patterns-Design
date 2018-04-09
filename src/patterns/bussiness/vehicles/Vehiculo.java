@@ -89,11 +89,7 @@ public class Vehiculo{
      * @param tipo 
      * @param motor
      */
-    public void registrarVehiculo(String placa, String tipo, IMotor motor) {
-        // TODO implement here
-    	this.placa = placa;
-    	this.tipo = tipo;
-    	this.motor = motor;
+    public void registrarVehiculo() {
         System.out.println("Registro del vehiculo completo");
     }
 

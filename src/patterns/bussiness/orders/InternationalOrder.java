@@ -1,13 +1,10 @@
 package patterns.bussiness.orders;
 
-
 import java.util.List;
-
-import patterns.bussiness.iterator.IterableO;
 import patterns.bussiness.iterator.Iterator;
 import patterns.bussiness.iterator.IteratorInterOrder;
 
-public class InternationalOrder extends Order implements IterableO<String> {
+public class InternationalOrder extends Order {
 	
 	private List<String> listVehicles;
 	
@@ -19,13 +16,11 @@ public class InternationalOrder extends Order implements IterableO<String> {
 	public List<String> getListVehicles() {
 		return listVehicles;
 	}
-
+	
 	@Override
 	public Iterator<String> getIterator() {
 		// TODO Auto-generated method stub
 		return new IteratorInterOrder(this.getListVehicles());
 	}
-
-
 
 }

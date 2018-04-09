@@ -1,10 +1,9 @@
 package patterns.bussiness.orders;
 
-import patterns.bussiness.iterator.IterableO;
 import patterns.bussiness.iterator.Iterator;
 import patterns.bussiness.iterator.IteratorNatOrder;
 
-public class NationalOrder extends Order implements IterableO<String> {
+public class NationalOrder extends Order {
 	
 	private String[] listVehicles;
 	

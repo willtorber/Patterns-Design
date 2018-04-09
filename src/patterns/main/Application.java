@@ -1,9 +1,17 @@
 package patterns.main;
 
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
+import patterns.bussiness.iterator.Iterator;
 import patterns.bussiness.motors.MotorAdapterDiesel;
 import patterns.bussiness.motors.MotorDiesel;
 import patterns.bussiness.motors.interfaces.IMotor;
+import patterns.bussiness.orders.InternationalOrder;
+import patterns.bussiness.orders.NationalOrder;
+import patterns.bussiness.pattern.facade.FacadePattern;
 import patterns.bussiness.pattern.factory.Factory;
 import patterns.bussiness.scenarios.Escenario;
 import patterns.bussiness.strategies.Estrategia;
@@ -17,47 +25,44 @@ public class Application {
 
 	public static void main(String[] args) {
 		
-		/*List<String> l = new ArrayList<String>(); 
-		l.add("1");
-		l.add("2");
-		l.add("3");
-		l.add("4");
-		l.add("5");
+		FacadePattern facade = FacadePattern.getFacadeInstance();
+
+		/**
+		 * Recibir ordenes
+		 */
+		List<String> listO = new ArrayList<String>(); 
+		listO.add("000AAA,Urbano,Diesel,Rojo");
+		listO.add("222EEE,Deportivo,Gasolino,Azul");
+		listO.add("567KIL,Urbano,Diesel,Verde");
+		listO.add("333CDE, Urbano, Diesel, Negro");
+		listO.add("098FGT, Deportivo, Gasolina, Plateado");
 		
-		String [] l2 = {"a", "b","c","d","e"};
+		// Ordenes internacionales
+		facade.recibirOrden("Will company", "Ninguna observación", listO);
 		
-		//InternationalOrder io = new InternationalOrder("will company", "Ninguna observación", l);
-		NationalOrder io = new NationalOrder("will company", "Ninguna observación", l2);
-		Iterator<String> i  = io.getIterator();
+		String [] listO2 = {"111GGG,Urbano,Diesel,Rojo",
+				"666CC,Deportivo,Gasolino,Azul",
+				"765BNM,Urbano,Diesel,Verde",
+				"333CDE, Urbano, Diesel, Negro",
+				"098FGT, Deportivo, Gasolina, Plateado"};
 		
-		while(i.hasNext()) {
-			System.out.println(i.next());
-		}
-			
-		MotorDiesel motorD = new MotorDiesel("00", "tipo", 4.5f, 2, 2.3f, 4);
-		MotorAdapterDiesel motorAD =  new MotorAdapterDiesel(motorD);
-		Factory factor = new Factory();
-		System.out.println(factor.crearVehiculo("Urbano", "Rojo", "1234", motorAD).toString());
-		System.out.println(factor.crearVehiculo("Urbano", "Rojo", "4321", motorAD).toString());
-		*/
 		
-		Vehiculo vehiculo = new VehiculoDeportivo();
-		IMotor motor = new MotorDiesel( "AHK-1267", "TIPO", (float)70.5, 5 , 570, 6);
-		vehiculo.setMotor(motor);
-		vehiculo.getMotor();
-		//Escenario
-		Escenario escenario= new Escenario();
-		escenario.setClima("SOLEADO");
-		escenario.setTerreno("TIERRA");
-		escenario.setRozamiento((float)0.33);
-		escenario.setVisibilidad((float)0.66);
-		Estrategia estrategia = new EstrategiaA();
-		Prueba p = new Prueba(vehiculo , escenario , estrategia);
-		p.realizarPrueba();
-		System.out.println("*******************************************************");
-		Estrategia estrategia2 = new EstrategiaB();
-		p.setEstrategia(estrategia2);
-		p.realizarPrueba();
+		// Ordenes nacionales		
+		facade.recibirOrden("Will company", "Ninguna observación", listO2);
+	
+				
+		/**
+		 * Registrar vehiculos 
+		 */
+		facade.registrarVehiculo("Deportivo", "verde", "DER123", "Diesel");
+		
+		
+		/**
+		 * Evaluar Vehiculo
+		 */ 
+		 Vehiculo vehiculo = facade.registrarVehiculo("Deportivo", "verde", "DER123", "Diesel");		 
+		 facade.evaluarVehiculo(0.66f, 0.33f, "Tierra", "Soleado", "EstrategiaA", vehiculo);
+				
 	}
 
 }

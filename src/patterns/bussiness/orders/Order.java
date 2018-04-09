@@ -1,6 +1,9 @@
 package patterns.bussiness.orders;
 
-public class Order {
+import patterns.bussiness.iterator.Iterator;
+import patterns.bussiness.iterator.IterableO;
+
+public class Order implements IterableO<String> {
 	
 	private String company;
 	private String observations;
@@ -32,4 +35,10 @@ public class Order {
 		this.observations = observations;
 	}
 
+	@Override
+	public Iterator<String> getIterator() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
 }
