@@ -26,7 +26,8 @@ public class Application {
 			System.out.println(i.next());
 		}
 		
-		MotorDiesel motorD = new MotorDiesel();
+		
+		MotorDiesel motorD = new MotorDiesel("00", "tipo", 4.5f, 2, 2.3f, 4);
 		MotorAdapterDiesel motorAD =  new MotorAdapterDiesel(motorD);
 		Factory factor = new Factory();
 		System.out.println(factor.crearVehiculo("Urbano", "Rojo", "1234", motorAD).toString());

@@ -1,29 +1,36 @@
 package patterns.bussiness.vehicles;
 
-import java.util.*;
+import patterns.bussiness.motors.interfaces.IMotor;
 
 /**
  * 
  */
 public class VehiculoUrbano extends Vehiculo {
 
-    /**
-     * Default constructor
-     */
-    public VehiculoUrbano() {
-    }
-
-    /**
+	/**
      * 
      */
     private float capacidad_maletero;
-
+	
+	/**
+     * Default constructor
+     */
+    public VehiculoUrbano() {
+    
+    }
+    
+    
+    public VehiculoUrbano(String placa, String tipo, IMotor motor, String color, float capacidad_maletero) {
+		super(placa, tipo, motor, color);
+		this.capacidad_maletero = capacidad_maletero;
+	}
+    
     /**
      * @return
      */
     public float getCapacidad_maletero() {
         // TODO implement here
-        return 0.0f;
+        return this.capacidad_maletero;
     }
 
     /**
