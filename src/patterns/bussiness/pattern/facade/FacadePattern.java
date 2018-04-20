@@ -11,6 +11,7 @@ import patterns.bussiness.orders.InternationalOrder;
 import patterns.bussiness.orders.NationalOrder;
 import patterns.bussiness.orders.Order;
 import patterns.bussiness.pattern.factory.Factory;
+import patterns.bussiness.pattern.observer.Message;
 import patterns.bussiness.scenarios.Escenario;
 import patterns.bussiness.strategies.Estrategia;
 import patterns.bussiness.strategies.EstrategiaA;
@@ -24,6 +25,7 @@ public final class FacadePattern {
 	private Prueba test;
 	private Order order;
 	private Factory factory;
+	//private Message message;
 	
 	private FacadePattern() {
 		this.factory = new Factory();
@@ -73,7 +75,9 @@ public final class FacadePattern {
 	public void evaluarVehiculo(float visibilidad, float rozamiento, String terreno, 
 			String clima, String estrategia, Vehiculo vehiculo) {		
 		
+		//this.message = new Message();
 		this.test = new Prueba();
+		//this.test.linkObservers(message);
 		
 		Escenario escenario = new Escenario();
 		escenario.setClima(clima);

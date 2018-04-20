@@ -1,5 +1,10 @@
 package patterns.bussiness.tests;
 
+import java.util.ArrayList;
+
+import patterns.bussiness.pattern.observer.Message;
+import patterns.bussiness.pattern.observer.Observer;
+import patterns.bussiness.pattern.observer.Subject;
 import patterns.bussiness.scenarios.Escenario;
 import patterns.bussiness.strategies.Estrategia;
 import patterns.bussiness.vehicles.Vehiculo;
@@ -7,7 +12,7 @@ import patterns.bussiness.vehicles.Vehiculo;
 /**
  * 
  */
-public class Prueba {
+public class Prueba implements Subject {
 
     private Vehiculo vehiculo;
 
@@ -20,7 +25,11 @@ public class Prueba {
     private float suspension;
 
     private Estrategia estrategia;
-
+    
+    //private ArrayList<Observer> observers;
+    
+    private Message message;
+    
 
     public Prueba(Vehiculo vehiculo , Escenario escenario ,Estrategia estrategia) {
     	this.vehiculo = vehiculo;
@@ -29,6 +38,8 @@ public class Prueba {
     	this.consumo_combustible = 0;
     	this.resistencia = 0;
     	this.suspension = 0;
+    	
+    	//observers = new ArrayList<Observer>();
     }
     
     public Prueba() {
@@ -49,6 +60,7 @@ public class Prueba {
     	System.out.println(this.estrategia.getAnalisisDeCalidad(this.consumo_combustible, this.resistencia, this.suspension));    	
     	this.vehiculo.apagar();
     	System.out.println("*** Fin de la Prueba ***");
+    	this.notifyTo();
     }
 
     public void registrarPruebas() {
@@ -122,7 +134,28 @@ public class Prueba {
 
 	public void setEstrategia(Estrategia estrategia) {
 		this.estrategia = estrategia;
+	}
+	
+	// observer pattern
+	@Override
+	public void notifyTo() {
+		// TODO Auto-generated method stub
+		message = new Message();
+		message.update();
+		
+		/*
+		for(Observer o: observers) {
+			o.update();
+		}
+		*/	
+		
 	}        
+	
+	/*
+	public void linkObservers(Observer o) {
+		observers.add(o);
+	}
+	*/
 
 }
 
