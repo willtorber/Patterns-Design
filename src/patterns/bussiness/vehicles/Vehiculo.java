@@ -3,11 +3,12 @@ package patterns.bussiness.vehicles;
 import java.util.*;
 
 import patterns.bussiness.motors.interfaces.IMotor;
+import patterns.bussiness.pattern.decorator.IVehiculo;
 
 /**
  * 
  */
-public class Vehiculo{
+public class Vehiculo implements IVehiculo{
 
     /**
      * 

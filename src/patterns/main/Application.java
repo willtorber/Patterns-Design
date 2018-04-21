@@ -3,6 +3,9 @@ package patterns.main;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import patterns.bussiness.pattern.decorator.IVehiculo;
+import patterns.bussiness.pattern.decorator.VehiculoElectrico;
 import patterns.bussiness.pattern.facade.FacadePattern;
 import patterns.bussiness.vehicles.Vehiculo;
 
@@ -48,6 +51,17 @@ public class Application {
 		 */ 
 		 Vehiculo vehiculo = facade.registrarVehiculo("Deportivo", "verde", "DER123", "Diesel");		 
 		 facade.evaluarVehiculo(0.66f, 0.33f, "Tierra", "Soleado", "EstrategiaA", vehiculo);
+		 
+		 IVehiculo vehiculo2 = new Vehiculo();
+		 vehiculo2.encender();
+		 vehiculo2.acelerar();
+		 vehiculo2.apagar();
+		 
+		 
+		 IVehiculo vehiculo3 = new VehiculoElectrico(new Vehiculo());
+		 vehiculo3.encender();
+		 vehiculo3.acelerar();
+		 vehiculo3.apagar();
 				
 	}
 
