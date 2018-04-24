@@ -7,5 +7,10 @@ public class Message implements Observer {
 		// TODO Auto-generated method stub
 		System.out.println("The test has finished, please check it");
 	}
-  // the observer
+	
+	public void doThing() {
+		System.out.println("This method do thing");
+	}
+	
+  // 	The observer
 }

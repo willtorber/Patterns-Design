@@ -1,9 +1,6 @@
 package patterns.bussiness.tests;
 
-import java.util.ArrayList;
-
 import patterns.bussiness.pattern.observer.Message;
-import patterns.bussiness.pattern.observer.Observer;
 import patterns.bussiness.pattern.observer.Subject;
 import patterns.bussiness.scenarios.Escenario;
 import patterns.bussiness.strategies.Estrategia;
