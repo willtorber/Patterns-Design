@@ -1,5 +1,6 @@
 package patterns.bussiness.pattern.facade;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import patterns.bussiness.iterator.Iterator;
@@ -10,6 +11,9 @@ import patterns.bussiness.motors.interfaces.IMotor;
 import patterns.bussiness.orders.InternationalOrder;
 import patterns.bussiness.orders.NationalOrder;
 import patterns.bussiness.orders.Order;
+import patterns.bussiness.pattern.composite.ComponentWork;
+import patterns.bussiness.pattern.composite.DesignProjectComposite;
+import patterns.bussiness.pattern.composite.Responsible;
 import patterns.bussiness.pattern.factory.Factory;
 import patterns.bussiness.pattern.observer.Message;
 import patterns.bussiness.scenarios.Escenario;
@@ -99,5 +103,19 @@ public final class FacadePattern {
 		
 		this.test.realizarPrueba();
 	}
+	
+	public void crearEstimarProyectoDeDiseño(String nameProject, String descriptionProject, 
+			String nameResponsible, ArrayList<ComponentWork> works) {
+		
+		Responsible responsible = new Responsible(nameResponsible);
+		DesignProjectComposite dpc = new DesignProjectComposite(nameProject, descriptionProject, responsible);
+		
+		for (ComponentWork work : works) {
+			dpc.addWork(work);
+		}
+		dpc.getInformation();
+	}
+	
+	
 	
 }
