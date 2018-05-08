@@ -2,6 +2,7 @@ package patterns.bussiness.tests;
 
 import patterns.bussiness.pattern.observer.Message;
 import patterns.bussiness.pattern.observer.Subject;
+import patterns.bussiness.proxy.GuardarDatos;
 import patterns.bussiness.scenarios.Escenario;
 import patterns.bussiness.strategies.Estrategia;
 import patterns.bussiness.vehicles.Vehiculo;
@@ -57,6 +58,9 @@ public class Prueba implements Subject {
     	System.out.println(this.estrategia.getAnalisisDeCalidad(this.consumo_combustible, this.resistencia, this.suspension));    	
     	this.vehiculo.apagar();
     	System.out.println("*** Fin de la Prueba ***");
+    	System.out.println("*** Guardar resultados de prueba ***");
+    	GuardarDatos saveData = new GuardarDatos();    	
+    	saveData.guardarTest("Resultados de la prueba");    	
     	this.notifyTo();
     }
 
