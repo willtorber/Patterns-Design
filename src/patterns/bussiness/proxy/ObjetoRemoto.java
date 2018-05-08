@@ -5,7 +5,7 @@ public class ObjetoRemoto implements IGuardar {
 	@Override
 	public void guardarTest(String resultado) {
 		// TODO Auto-generated method stub
-		
+		System.out.println("Guardando datos remotamente");
 	}
 
 }
